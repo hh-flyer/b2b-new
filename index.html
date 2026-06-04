@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Специальное предложение - hh.kz</title>
+    <style>
+	@font-face {
+        font-family: 'hhsans';
+        src: url('fonts/hhsans-regular.woff2') format('woff2');
+        font-weight: 400;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'hhsans';
+        src: url('fonts/hhsans-display.woff2') format('woff2');
+        font-weight: 700;
+        font-style: normal;
+    }
+	
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body { 
+            font-family: 'hhsans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; 
+        min-height: 100vh;
+            /* Более сложный, динамичный фон */
+            background: radial-gradient(circle at 80% 20%, #2C2C2E 0%, #121212 50%, #000000 100%);
+            background-attachment: fixed;
+            color: #ffffff;
+            display: flex; flex-direction: column; align-items: center;
+        }
+
+        /* Анимации для динамики */
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4); } 70% { box-shadow: 0 0 0 10px rgba(255, 255, 255, 0); } 100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); } }
+
+        .header { 
+            width: 100%; display: flex; justify-content: space-between; align-items: center; 
+            padding: 20px 24px; position: sticky; top: 0; z-index: 100;
+            background: rgba(0, 0, 0, 0.3); backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .logo-img { height: 46px; width: auto; }
+
+        .app-btn { 
+            background: #FFFFFF; color: #000000; padding: 8px 16px; border-radius: 100px; 
+            text-decoration: none; font-size: 13px; font-weight: 700; transition: transform 0.2s;
+        }
+        .app-btn:hover { transform: scale(1.05); }
+
+        .main-container {
+            width: 100%; max-width: 500px; /* Ограничим ширину для красоты */
+            padding: 40px 20px;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .hero { margin-bottom: 32px; }
+        .hero h1 { 
+            font-size: 44px; line-height: 1; font-weight: 800; letter-spacing: -2px; 
+            background: linear-gradient(to bottom, #FFFFFF, #8E8E93);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+
+        /* КАРТОЧКА С БЛИКОМ */
+.card { 
+    position: relative; /* Обязательно для позиционирования блика */
+    background: rgba(255, 255, 255, 0.05); 
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+    
+    /* Основной контур */
+    border: 1px solid rgba(255, 255, 255, 0.15); 
+    border-radius: 40px; 
+    padding: 48px 32px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5), inset 0 0 0 1px rgba(255,255,255,0.05);
+    text-align: center;
+}
+
+/* ЭФФЕКТ БЛИКА ПО ВЕРХНЕМУ КРАЮ */
+.card::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    border-radius: 40px;
+    /* Светлая линия только сверху и чуть по бокам */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    /* Маска, чтобы блик был только вверху, а внизу плавно исчезал */
+    mask: linear-gradient(to bottom, rgba(0,0,0,1) 10%, transparent 40%);
+    -webkit-mask: linear-gradient(to bottom, rgba(0,0,0,1) 10%, transparent 40%);
+    pointer-events: none; /* Чтобы кнопка внутри кликалась */
+}
+        .card h2 { font-size: 24px; color: #E5E5E5; margin-bottom: 12px; }
+        .card p { font-size: 16px; line-height: 1.6; color: #A1A1A1; }
+
+        /* Пульсирующая кнопка */
+        .cta-btn { 
+            display: block; text-align: center; 
+            background: #FFFFFF; color: #000000; 
+            text-decoration: none; padding: 20px; 
+            border-radius: 20px; font-weight: 800; font-size: 16px; 
+            margin-top: 32px; text-transform: uppercase; letter-spacing: 0.5px;
+            animation: pulse 2s infinite;
+            transition: all 0.3s;
+        }
+        .cta-btn:hover { background: #E5E5E5; transform: translateY(-2px); }
+
+        /* Вынесенная юридика */
+        .legal-footer {
+            margin-top: 40px; padding: 0 20px;
+            font-size: 11px; color: rgba(255, 255, 255, 0.3);
+            line-height: 1.5; text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <img src="images/logo hh B.svg" alt="Логотип hh.kz" class="logo-img">
+        <a href="https://my.hh.ru/21X" class="app-btn">Скачать приложение</a>
+    </header>
+    
+    <main class="main-container">
+        <section class="hero">
+            <h1>Поиск сотрудников за пару кликов</h1>
+        </section>
+
+        <section class="card">
+            <h2>Специальное предложение от hh.kz</h2>
+            <p>Участникам форума New Vision — дополнительная бесплатная вакансия тарифа «Стандарт».</p>
+            
+            <a href="https://my.hh.ru/224" class="cta-btn">Получить бесплатную вакансию</a>
+        </section>
+
+        <footer class="legal-footer">
+            <strong>Условия акции:</strong><br><br>
+            Бесплатное размещение вакансии тарифа «Стандарт» доступно для активации до 30.06 2026 года включительно. Срок размещения вакансии - 30 календарных дней с момента публикации.<br><br>
+            Предложение действует для юридических лиц и индивидуальных предпринимателей Республики Казахстан, зарегистрированных на hh.kz и подтвердивших регистрацию компании на платформе. Для активации вакансии необходимо предоставить документы и сведения, запрашиваемые компанией для подтверждения данных работодателя.
+        </footer>
+    </main>
+</body>
+</html>
